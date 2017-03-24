@@ -1,5 +1,6 @@
 ### Last version updated: b12
 
+### <- [GijonDev](gijondev.github.io)
 
 
 # gWiris
