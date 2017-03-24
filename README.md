@@ -1,3 +1,7 @@
+### Last version updated: b12
+
+
+
 # gWiris
 Editing the default WIRIS versions. Batchfile 100%
 
