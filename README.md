@@ -1,6 +1,6 @@
 ### Last version updated: b12
 
-### <- [GijonDev](gijondev.github.io)
+
 
 
 # gWiris
@@ -23,4 +23,6 @@ gWiris is running under BSD-3 Clause license.
 To install it just put it inside the WIRIS default folder. Run it and it'll automatically modify everything.
 
 # Download: [[+](https://github.com/GijonDev/gWiris/releases/download/b12/gWiris.cmd)]
+
+### <- [GijonDev](http://gijondev.github.io)
 
