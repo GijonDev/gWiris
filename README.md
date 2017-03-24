@@ -22,3 +22,9 @@ gWiris is running under BSD-3 Clause license.
 To install it just put it inside the WIRIS default folder. Run it and it'll automatically modify everything.
 
 # Download: [[*link*](https://github.com/GijonDev/gWiris/releases/download/b12/gWiris.cmd)]
+
+
+<a class="github-button" href="https://github.com/GijonDev/gWiris/archive/master.zip" data-icon="octicon-cloud-download" data-style="mega" aria-label="Download GijonDev/gWiris on GitHub">Download</a>
+
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
