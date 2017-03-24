@@ -21,4 +21,4 @@ Being updated.
 ## Instalation
 To install it just put it inside the WIRIS default folder. Run it and it'll automatically modify everything.
 
-# Download: [*link*](https://github.com/GijonDev/gWiris/releases/download/b12/gWiris.cmd)
+# Download: [[*link*](https://github.com/GijonDev/gWiris/releases/download/b12/gWiris.cmd)]
