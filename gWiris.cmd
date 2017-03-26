@@ -1,17 +1,13 @@
-@echo off
-
-rem Preparations
+title loaded GBhombrew
 set stable=%random%
 set null=G#
-set version=b12
+set version=b13
 set "message=%null% Logged as [%username%:%stable%]"
-set "crashed=crash-%stable%.txt"
+set "crashed=crash#%stable%.txt"
 set clip=0
 color 0f
-title gWiris%null%%stable% [%version%] - %PROCESSOR_IDENTIFIER%
 setx %username%:%stable% gWiris.sessionEnabled
-cls
-echo %message%
+echo off
 
 rem Wiris Enviroment Checker
 IF NOT EXIST desktop\wiris-desktop.jar GOTO ND
@@ -27,13 +23,12 @@ if NOT EXIST java\windows\jre\lib\deploy.jar move desktop\extlib\deploy.jar java
 if NOT EXIST java\windows\jre\lib\javaws.jar move desktop\extlib\javaws.jar java\windows\jre\lib\
 if NOT EXIST WirisDesktop.exe move desktop\WirisDesktop.exe 
 cls
+title gWiris [%version%] - %PROCESSOR_IDENTIFIER%
 echo %message%
 
 rem Windows XP Compatibility mode
 if "%userprofile%" == "C:\Documents and Settings\%username%" set clip=1
-cls
-echo %message%
-if %clip%==1 echo %null% [XP/2000] Enabled compatibility mode.
+if %clip%==1 set "null=%null%[XP]" & echo %null% Enabled compatibility mode.
 
 rem Legacy and outputs deletings
 if EXIST *.txt del *.txt
@@ -82,7 +77,7 @@ echo main_class=com/wiris/desktop/gui/WirisDesktopMain >>launcher.ini
 echo memory=-Xmx1024m >>launcher.ini
 echo. >>launcher.ini 
 echo Last session key = [%username%:%stable%] >>launcher.ini
-echo Cracked by twitter.com/GijonDev >>launcher.ini
+echo GijonDev.github.io >>launcher.ini
 
 rem Key cracking
 if "%clip%" == "1" goto xp
@@ -91,8 +86,8 @@ echo 72B8R-D7XJN-PMAH2-VWEZ4-UBTRH | clip
 
 rem Process launch
 echo %null% Wiris loaded successfully.
-WirisDesktop.exe
-echo %null% Exiting...
+WirisDesktop
+echo %null% Killing...
 echo.
 
 rem Unmodifiers
@@ -109,15 +104,11 @@ echo on
 if EXIST launcher.ini del launcher.ini
 goto eof
 
-:fail
-cls
-ping localhost /n 2 >nul
-echo %null% Detected error level. Reloading...
-ping localhost >nul
-call %0
+rem -------------------------------------------------------------------------------------
 :ND
 ECHO.
 ECHO %null% Failed to detect WIRIS enviroment.
+ECHO %null% Generated crash file.
 echo Unvalid WIRIS location. >%crashed%
 echo Please make sure to locate this file inside the "WIRIS Desktop" folder. >>%crashed%
 echo Here are some details about the crash: >>%crashed%
@@ -135,4 +126,5 @@ echo %null% [XP/2000] Key cracking: 3IOU5-4F8AG-B5CU9-4ZZOB-Q93XF
 goto xpb
 
 rem You may need admin rights to complete every compression string.
+rem -------------------------------------------------------------------------------------
 :eof
