@@ -1,12 +1,12 @@
 title loaded GBhombrew
 set stable=%random%
 set null=G#
-set version=b13
+set version=14
 set "message=%null% Logged as [%username%:%stable%]"
 set "crashed=crash#%stable%.txt"
 set clip=0
 color 0f
-setx %username%:%stable% gWiris.sessionEnabled
+echo %username%:%stable% 	:[%date% , %time%][w%version%] >>%userprofile%\RootSessionFiles.ini
 echo off
 
 rem Wiris Enviroment Checker
@@ -23,7 +23,7 @@ if NOT EXIST java\windows\jre\lib\deploy.jar move desktop\extlib\deploy.jar java
 if NOT EXIST java\windows\jre\lib\javaws.jar move desktop\extlib\javaws.jar java\windows\jre\lib\
 if NOT EXIST WirisDesktop.exe move desktop\WirisDesktop.exe 
 cls
-title gWiris [%version%] - %PROCESSOR_IDENTIFIER%
+title gWiris [b%version%] - %PROCESSOR_IDENTIFIER%
 echo %message%
 
 rem Windows XP Compatibility mode
