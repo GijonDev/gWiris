@@ -40,8 +40,6 @@ ping localhost /n 1 >nul
 rem Legacy and outputs deletings
 if EXIST *.txt del *.txt
 if EXIST *.ini del *.ini
-if EXIST *.bat del *.bat
-if EXIST *.vbs del *.vbs
 if EXIST Wz.flag.cmd del Wz.flag.cmd
 
 cls
