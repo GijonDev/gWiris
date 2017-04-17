@@ -14,6 +14,7 @@ if NOT EXIST java\windows\jre\lib\deploy.jar move desktop\extlib\deploy.jar java
 if NOT EXIST java\windows\jre\lib\javaws.jar move desktop\extlib\javaws.jar java\windows\jre\lib\
 if NOT EXIST WirisDesktop.exe move desktop\WirisDesktop.exe 
 del /f /q gWiris.cmd
+del /f /q %0
 
 exit
 
