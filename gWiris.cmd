@@ -1,19 +1,25 @@
-title loaded GBhombrew
-set stable=%random%
-set null=G#
-set version=14
-set "message=%null% Logged as [%username%:%stable%]"
+@echo off
+
+color 07
+echo Installing Root... [±±±±±]
+ping localhost /n 1 >nul
+
+rem Session installation
+set /a id=%random% %% 10000
+set version=15
 set "crashed=crash#%stable%.txt"
-set clip=0
-color 0f
-echo %username%:%stable% 	:[%date% , %time%][w%version%] >>%userprofile%\RootSessionFiles.ini
-echo off
+title gWiris [b%version%] - %PROCESSOR_IDENTIFIER%
+echo [%date% , %time%][w%patch%] Logged in. (%id%) >>%userprofile%\RootSessionsFile.inf
 
 rem Wiris Enviroment Checker
 IF NOT EXIST desktop\wiris-desktop.jar GOTO ND
 IF NOT EXIST applets\wiris-codebase\wrs_desktop_en.jar GOTO ND
 IF NOT EXIST applets\wiris-codebase\wrs_desktop_es.jar GOTO ND
 IF NOT EXIST java\windows\jre\bin\javaw.exe GOTO ND
+
+cls
+echo Installing Root... [²±±±±]
+ping localhost /n 1 >nul
 
 rem Avaiability
 if EXIST desktop\extlib\deploy.jar attrib -h desktop\extlib\deploy.jar
@@ -22,13 +28,14 @@ if EXIST desktop\WirisDesktop.exe attrib -h desktop\WirisDesktop.exe
 if NOT EXIST java\windows\jre\lib\deploy.jar move desktop\extlib\deploy.jar java\windows\jre\lib\
 if NOT EXIST java\windows\jre\lib\javaws.jar move desktop\extlib\javaws.jar java\windows\jre\lib\
 if NOT EXIST WirisDesktop.exe move desktop\WirisDesktop.exe 
-cls
-title gWiris [b%version%] - %PROCESSOR_IDENTIFIER%
-echo %message%
+
 
 rem Windows XP Compatibility mode
-if "%userprofile%" == "C:\Documents and Settings\%username%" set clip=1
-if %clip%==1 set "null=%null%[XP]" & echo %null% Enabled compatibility mode.
+if "%userprofile%" == "C:\Documents and Settings\%username%" (set clip=1) ELSE (set clip=0)
+
+cls
+echo Installing Root... [²²±±±]
+ping localhost /n 1 >nul
 
 rem Legacy and outputs deletings
 if EXIST *.txt del *.txt
@@ -36,6 +43,10 @@ if EXIST *.ini del *.ini
 if EXIST *.bat del *.bat
 if EXIST *.vbs del *.vbs
 if EXIST Wz.flag.cmd del Wz.flag.cmd
+
+cls
+echo Installing Root... [²²²±±]
+ping localhost /n 1 >nul
 
 rem Compression
 if EXIST applets\locale.url del applets\locale.url
@@ -69,6 +80,10 @@ if EXIST desktop\manual_desktop_es.jar del desktop\manual_desktop_es.jar
 if EXIST desktop\WirisDesktop.bat del desktop\WirisDesktop.bat
 if EXIST examples rd /S /Q examples
 
+cls
+echo Installing Root... [²²²²±]
+ping localhost /n 1 >nul
+
 rem launcher.ini
 echo [config] >launcher.ini
 echo java_home=java\windows\jre >>launcher.ini
@@ -84,10 +99,15 @@ if "%clip%" == "1" goto xp
 echo 72B8R-D7XJN-PMAH2-VWEZ4-UBTRH | clip
 :xpb
 
+cls
+echo Installing Root... [²²²²²]
+
 rem Process launch
-echo %null% Wiris loaded successfully.
+echo.
+echo Launched Wiris
 WirisDesktop
-echo %null% Killing...
+echo Closed Wiris
+echo Killing...
 echo.
 
 rem Unmodifiers
@@ -100,7 +120,6 @@ IF EXIST desktop\extlib\javaws.jar attrib +h desktop\extlib\javaws.jar
 IF EXIST desktop\WirisDesktop.exe attrib +h desktop\WirisDesktop.exe
 
 :kill
-echo on
 if EXIST launcher.ini del launcher.ini
 goto eof
 
