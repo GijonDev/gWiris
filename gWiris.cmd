@@ -5,7 +5,7 @@ echo Installing Root... [±±±±±]
 ping localhost /n 1 >nul
 
 rem Session installation
-set /a "id=%random% %% 10000" & set "ver=16" & set "crashed=crash#%stable%.txt"
+set /a "id=%random% %% 10000" & set "ver=17" & set "crashed=crash#%stable%.txt"
 title gWiris %ver% - %PROCESSOR_IDENTIFIER%
 echo [%date% , %time%][w%patch%] Logged in. (%id%) >>%userprofile%\RootSessionsFile.inf
 
@@ -96,25 +96,22 @@ cls
 echo Installing Root... [²²²²²]
 
 rem Process launch
-echo.
-echo Launched Wiris
+echo LAUNCHED
 WirisDesktop
-echo Closed Wiris
-echo Killing
+cls
+echo Working...
 echo.
 
 rem Unmodifiers
-set errorlevel=0
 IF NOT EXIST desktop\WirisDesktop.exe (move WirisDesktop.exe desktop\ & attrib +h desktop\WirisDesktop.exe)
 IF NOT EXIST desktop\extlib\deploy.jar (move java\windows\jre\lib\deploy.jar desktop\extlib & attrib +h desktop\extlib\deploy.jar)
 IF NOT EXIST desktop\extlib\javaws.jar (move java\windows\jre\lib\javaws.jar desktop\extlib & attrib +h desktop\extlib\javaws.jar) 
 
 :kill
 if EXIST launcher.ini del /f /q launcher.ini
-if EXIST xpmode.gwiris del /f /q xpmode.gwiris
+if EXIST key.gWiris.txt del /f /q key.gWiris.txt
 goto eof
 
-rem -------------------------------------------------------------------------------------
 :ND
 ECHO.
 ECHO %null% Failed to detect WIRIS enviroment.
@@ -132,8 +129,6 @@ PAUSE
 GOTO KILL
 
 :xp
-echo 3IOU5-4F8AG-B5CU9-4ZZOB-Q93XF >xpmode.gwiris
-notepad.exe xpmode.gwiris
+echo 3IOU5-4F8AG-B5CU9-4ZZOB-Q93XF >key.gWiris.txt
+start key.gWiris.txt & ping localhost /n 1 >nul & del /f /Q key.gWiris.txt
 goto xpb
-
-:eof
