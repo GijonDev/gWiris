@@ -5,11 +5,13 @@ echo Installing Root... [±±±±±]
 ping localhost /n 1 >nul
 
 rem Session installation
-set /a "id=%random% %% 10000" & set "ver=17" & set "crashed=crash#%stable%.txt"
+set /a "id=%random% %% 10000" & set "ver=18" & set "crashed=crash#%stable%.txt"
 title gWiris %ver% - %PROCESSOR_IDENTIFIER%
 echo [%date% , %time%][w%patch%] Logged in. (%id%) >>%userprofile%\RootSessionsFile.inf
 
 rem Wiris Enviroment Checker
+if NOT EXIST applets\kernel\inilibs.omc\RootKeyLogon MD applets\kernel\inilibs.omc\RootKeyLogon
+if NOT EXIST applets\kernel\inilibs.omc\RootKeyLogon\%logonserver%.txt (set "keypop=1" & type nul > applets\kernel\inilibs.omc\RootKeyLogon\%logonserver%.txt) ELSE (set keypop=0)
 IF NOT EXIST desktop\wiris-desktop.jar GOTO ND
 IF NOT EXIST applets\wiris-codebase\wrs_desktop_en.jar GOTO ND
 IF NOT EXIST applets\wiris-codebase\wrs_desktop_es.jar GOTO ND
@@ -34,9 +36,8 @@ echo Installing Root... [²²±±±]
 ping localhost /n 1 >nul
 
 rem Legacy and outputs deletings
-if EXIST *.txt del /f /q *.txt
-if EXIST *.ini del /f /q *.ini
-if EXIST Wz.flag.cmd del /f /q Wz.flag.cmd
+if EXIST key.gWiris.txt del /f /q key.gWiris.txt
+if EXIST launcher.ini del /f /q launcher.ini
 
 cls
 echo Installing Root... [²²²±±]
@@ -130,5 +131,5 @@ GOTO KILL
 
 :xp
 echo 3IOU5-4F8AG-B5CU9-4ZZOB-Q93XF >key.gWiris.txt
-start key.gWiris.txt & ping localhost /n 1 >nul & del /f /Q key.gWiris.txt
+IF %keypop%==1 start key.gWiris.txt & ping localhost /n 1 >nul & del /f /Q key.gWiris.txt
 goto xpb
