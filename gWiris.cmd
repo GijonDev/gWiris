@@ -1,24 +1,25 @@
 @echo off
 
 color 07
-echo Installing Root... [±±±±±]
+echo Installing gWiris... [±±±±±]
 ping localhost /n 1 >nul
 
 rem Session installation
-set /a "id=%random% %% 10000" & set "ver=18" & set "crashed=crash#%stable%.txt"
+set /a "id=%random% %% 10000" & set "ver=19" & set "crashed=crash#%id%.txt"
 title gWiris %ver% - %PROCESSOR_IDENTIFIER%
-echo [%date% , %time%][w%patch%] Logged in. (%id%) >>%userprofile%\RootSessionsFile.inf
+echo [%date% , %time%][w%ver%] Logged in. (%id%) >>%userprofile%\gWirisSessionsFile.inf
 
 rem Wiris Enviroment Checker
-if NOT EXIST applets\kernel\inilibs.omc\RootKeyLogon MD applets\kernel\inilibs.omc\RootKeyLogon
-if NOT EXIST applets\kernel\inilibs.omc\RootKeyLogon\%logonserver%.txt (set "keypop=1" & type nul > applets\kernel\inilibs.omc\RootKeyLogon\%logonserver%.txt) ELSE (set keypop=0)
+if NOT EXIST applets\kernel\inilibs.omc\gWirisKeyLogon MD applets\kernel\inilibs.omc\gWirisKeyLogon
+if NOT EXIST applets\kernel\inilibs.omc\gWirisKeyLogon\%logonserver%.txt (set "keypop=1" & type nul > applets\kernel\inilibs.omc\gWirisKeyLogon\%logonserver%.txt) ELSE (set keypop=0)
 IF NOT EXIST desktop\wiris-desktop.jar GOTO ND
-IF NOT EXIST applets\wiris-codebase\wrs_desktop_en.jar GOTO ND
-IF NOT EXIST applets\wiris-codebase\wrs_desktop_es.jar GOTO ND
+IF NOT EXIST applets\wiris-codebase\wrs_desktop_en.jar set /a ndd=%ndd%++1
+IF NOT EXIST applets\wrs_sign_desktop_en.jar set /a ndd=%ndd%++1
 IF NOT EXIST java\windows\jre\bin\javaw.exe GOTO ND
+IF %ndd%==2 goto ND
 
 cls
-echo Installing Root... [²±±±±]
+echo Installing gWiris... [²±±±±]
 ping localhost /n 1 >nul
 
 rem Avaiability
@@ -29,10 +30,9 @@ if NOT EXIST WirisDesktop.exe (attrib -h desktop\WirisDesktop.exe & move desktop
 
 rem Windows XP Compatibility mode
 if "%userprofile%" == "C:\Documents and Settings\%username%" (set clip=1) ELSE (set clip=0)
-set clip=1
 
 cls
-echo Installing Root... [²²±±±]
+echo Installing gWiris... [²²±±±]
 ping localhost /n 1 >nul
 
 rem Legacy and outputs deletings
@@ -40,12 +40,12 @@ if EXIST key.gWiris.txt del /f /q key.gWiris.txt
 if EXIST launcher.ini del /f /q launcher.ini
 
 cls
-echo Installing Root... [²²²±±]
+echo Installing gWiris... [²²²±±]
 ping localhost /n 1 >nul
 
 rem Compression
-if EXIST applets\locale.url del /f /q applets\locale.url
 if EXIST license-de.txt del /f /q license-de.txt
+if EXIST licencia-es.txt del /f /q licencia-es.txt
 if EXIST license-es.txt del /f /q license-es.txt
 if EXIST license-en.txt del /f /q license-en.txt
 if EXIST uninstall.exe del /f /q uninstall.exe
@@ -63,6 +63,14 @@ if EXIST applets\wiris-codebase\wrs_desktop_it.jar del /f /q applets\wiris-codeb
 if EXIST applets\wiris-codebase\wrs_desktop_pt.jar del /f /q applets\wiris-codebase\wrs_desktop_pt.jar
 if EXIST applets\wiris-codebase\wrs_desktop_nl.jar del /f /q applets\wiris-codebase\wrs_desktop_nl.jar
 if EXIST applets\wiris-codebase\wrs_desktop_eu.jar del /f /q applets\wiris-codebase\wrs_desktop_eu.jar
+if EXIST applets\wrs_sign_desktop_ca.jar del /f /q applets\wrs_sign_desktop_ca.jar
+if EXIST applets\wrs_sign_desktop_de.jar del /f /q applets\wrs_sign_desktop_de.jar
+if EXIST applets\wrs_sign_desktop_et.jar del /f /q applets\wrs_sign_desktop_et.jar
+if EXIST applets\wrs_sign_desktop_fr.jar del /f /q applets\wrs_sign_desktop_fr.jar
+if EXIST applets\wrs_sign_desktop_it.jar del /f /q applets\wrs_sign_desktop_it.jar
+if EXIST applets\wrs_sign_desktop_pt.jar del /f /q applets\wrs_sign_desktop_pt.jar
+if EXIST applets\wrs_sign_desktop_nl.jar del /f /q applets\wrs_sign_desktop_nl.jar
+if EXIST applets\wrs_sign_desktop_eu.jar del /f /q applets\wrs_sign_desktop_eu.jar
 if EXIST desktop\manual_desktop_ca.jar del /f /q desktop\manual_desktop_ca.jar
 if EXIST desktop\manual_desktop_de.jar del /f /q desktop\manual_desktop_de.jar
 if EXIST desktop\manual_desktop_eu.jar del /f /q desktop\manual_desktop_eu.jar
@@ -76,7 +84,7 @@ if EXIST desktop\WirisDesktop.bat del /f /q desktop\WirisDesktop.bat
 if EXIST examples rd /S /Q examples
 
 cls
-echo Installing Root... [²²²²±]
+echo Installing gWiris... [²²²²±]
 ping localhost /n 1 >nul
 
 rem launcher.ini
@@ -94,7 +102,7 @@ echo 72B8R-D7XJN-PMAH2-VWEZ4-UBTRH | clip
 :xpb
 
 cls
-echo Installing Root... [²²²²²]
+echo Installing gWiris... [²²²²²]
 
 rem Process launch
 echo LAUNCHED
@@ -111,7 +119,8 @@ IF NOT EXIST desktop\extlib\javaws.jar (move java\windows\jre\lib\javaws.jar des
 :kill
 if EXIST launcher.ini del /f /q launcher.ini
 if EXIST key.gWiris.txt del /f /q key.gWiris.txt
-goto eof
+if EXIST %crashed% del /f /q %crashed%
+EXIT
 
 :ND
 ECHO.
