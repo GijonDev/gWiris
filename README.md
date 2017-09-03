@@ -7,11 +7,10 @@
 Editing the default WIRIS versions using batch 100%
 
 ## Project
-This file is useful for somebody who runs WIRIS regularly and sometimes needs to work outside home.
-This file deletes some useless files + incrementing default WIRIS' performance by adding more used RAM to the config files.
+This file deletes some useless files + increments default WIRIS' performance by adding more used RAM to the config files. Duplicating WIRIS regular performance is common.
 
 ## Source
-Every single piece of code in this file is coded by me. Every other code is owned by the app creators. You can take a look at gWiris' code with a notepad by right-clicking it and selecting "Edit".
+Every single piece of code in this file is coded by me. Every other code is owned by the app creators.
 
 ## Compatibility & Enviroment
 You only need a valid WIRIS location for this file to work. It'll automatically find a WIRIS enviroment and stick to it. It's tested under WIRIS Desktop CAD but should work under any other. It supports XP and below and works fine on any type of USB.
