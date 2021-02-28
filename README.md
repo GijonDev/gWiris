@@ -1,5 +1,4 @@
 # gWiris
-Editing the default WIRIS versions using batch scripts.
 
 ## Project
 This file deletes some useless files + increments default WIRIS' performance by adding more used RAM to the config files. Duplicating WIRIS regular performance is common.
