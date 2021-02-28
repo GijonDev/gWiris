@@ -18,5 +18,5 @@ To uninstall and return WIRIS to its original state, run uninstall.bat in the sa
 
 ### [Downloads](https://github.com/GijonDev/gWiris/releases/)
 **Or download the latest version [here](https://github.com/GijonDev/gWiris/releases/download/b20/gWiris.cmd)**
-### Last version updated: b20 (17/02/18)
+### Last version updated: b20 (2018-02-17)
 
